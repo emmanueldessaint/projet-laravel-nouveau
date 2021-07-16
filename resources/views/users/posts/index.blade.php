@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="div">
-        <div class="p-6">
+    <div class="width bg-white pb-1">
+        <div class="p-6 ml-5 mt-3">
             <h1>{{ $user->name }}</h1>
             <p>Posted {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} and received </p>
         </div>
@@ -25,7 +25,9 @@
 @endsection
 
 <style>
-    .div{
-        /* background: orange; */
-    }
+    .width{
+        margin-top:3em;
+        margin-left:15%;
+        margin-right:15%;
+}
 </style>
