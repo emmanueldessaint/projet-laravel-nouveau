@@ -17,12 +17,13 @@
                             </div>
                         @enderror
                                         
-                        <button type="submit" class="bouton-post">Post</button>
+                        <button type="submit" class="bouton-post">Poster</button>
                     </div>
                 </form>
             @endauth
 
             @if ($posts->count())
+            <div style="height:10px;"></div>
                 @foreach ($posts as $post)
                    <x-post :post="$post"/>
                 @endforeach

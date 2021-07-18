@@ -20,7 +20,7 @@ class DashboardController extends Controller
     
     public function index(User $user)
     {
-        dd($user->receivedLikes());
+        
         $posts = Post::latest()->with(['user', 'likes'])->where('user_id', '=', Auth::user()->id)->paginate(20);
 
 
