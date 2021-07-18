@@ -116,6 +116,7 @@
 }
 .background{
     background:rgb(224, 228, 255);
+    
 }
 .bg-menu{
     background:rgb(255, 255, 255);

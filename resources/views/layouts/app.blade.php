@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../../public/css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Laravel-project</title>
 </head>
@@ -32,7 +32,7 @@
                 <li class=" align-self-center vertical-align">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <button type="submit" class="button_disconnect">Se déconnecter</button>
+                        <button type="submit" class="button_disconnect mt-3 mr-4">Se déconnecter</button>
                     </form>
                     
     
@@ -119,7 +119,7 @@
     .button_disconnect{
         color:#494f54;
         border:none;
-        background:white;
+        background:rgb(255, 255, 255);
         font-weight:bold;
     }
     .vertical-align{

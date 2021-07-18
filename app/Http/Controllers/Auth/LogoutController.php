@@ -13,7 +13,7 @@ class LogoutController extends Controller
         // auth()->logout();
         Auth::logout();
 
-        return redirect()->route('home');
+        return redirect()->route('posts');
 
         // dd('logout');
         

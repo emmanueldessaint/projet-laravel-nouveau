@@ -4,7 +4,7 @@
     <div class="width bg-white pb-1">
         <div class="p-6 ml-5 mt-3">
             <h1>{{ $user->name }}</h1>
-            <p>Posted {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} and received </p>
+            <p>a posté {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} et a reçu {{ $user->receivedLikes->count() }} j'aime(s) </p>
         </div>
 
         <div>

@@ -1,7 +1,7 @@
 @props(['post' => $post])
 
 <div class="mb-4 mr-4 ml-4 d-flex class-posts flex-column background rounded ">
-    <div>
+    <div class="pt-2">
         <a href="{{ route('users.posts', $post->user) }}" class="font-bold ml-3 ">{{ $post->user->name }}</a> 
         <span class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</span>
     </div>
@@ -21,18 +21,18 @@
             @if (!$post->likedBy(auth()->user()))
                 <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-1">
                     @csrf
-                    <button type="submit" class=" ml-3 background btn btn-link pt-1">Like</button>
+                    <button type="submit" class=" ml-2 background btn btn-link pt-1"><small>Aimer</small></button>
                 </form>
             @else
                 <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-1">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class=" ml-3 btn btn-link pt-1">Unlike</button>
+                    <button type="submit" class=" ml-2 btn btn-link pt-1"><small>Ne plus aimer</small></button>
                 </form>
             @endif
         @endauth
 
-        <span>{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count()) }}</span>
+        <span><small class="ml-3">{{ $post->likes->count() }} {{ Str::plural('j\'aime', $post->likes->count()) }}</small></span>
     </div>
 </div>
 

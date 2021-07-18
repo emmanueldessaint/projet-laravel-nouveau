@@ -1,15 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="width bg-white rounded">
+    <div class="width bg-white rounded p-3">
         <div class="p-6">
-            <h1>{{ auth()->user()->name }}</h1>
-            
-            {{-- <p>Posted {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} and received </p> --}}
+            <h1 class="ml-4 pt-2">{{ auth()->user()->name }}</h1>
+        @if ($posts->count())    
+            <p class="ml-4">a posté {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }} et a reçu {{ $user->receivedLikes->count() }} j'aime(s)</p>
+        @else
+            <p>{{ auth()->user()->name }} does not have any posts</p>
+        @endif
         </div>
 
         <div>
-            {{-- @if ($posts->count())
+            @if ($posts->count())
                 @foreach ($posts as $post)
                     <x-post :post="$post"/>
                     
@@ -18,8 +21,8 @@
                 {{ $posts->links() }}
                 
             @else
-                <p>{{ $user->name }} does not have any posts</p>
-            @endif --}}
+                {{-- <p>{{ auth()->user()->name }} does not have any posts</p> --}}
+            @endif
         </div>
     </div>
     

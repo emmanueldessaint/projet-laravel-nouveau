@@ -30,8 +30,9 @@
                 {{ $posts->links() }}
                
             @else
-                <p>There are no posts</p>
+                <p class="ml-4">Il n'y a pas encore de posts.</p>
             @endif
+            
         </div>
     </div>
 @endsection
