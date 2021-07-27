@@ -4,6 +4,7 @@
     <div class="">
         <div class="width bg-white rounded pb-1 ">
             @auth
+            
                 <form action="{{ route('posts') }}" method="post" class="mb-4 ml-4 pt-4">
                     @csrf
                     <div class="mb-4 mr-4 class-posts d-flex flex-column">

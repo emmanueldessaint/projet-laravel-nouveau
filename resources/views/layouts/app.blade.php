@@ -20,12 +20,16 @@
                 <a href="{{ route('posts') }}" class=" margin-right-left text-secondary h6">Posts</a>
 
             </li>
+            <li class=" align-self-center">
+                <a href="{{ route('products') }}" class=" margin-right-left text-secondary h6">nos produits</a>
+
+            </li>
         </ul>
         <ul class="d-flex style-none">
             @auth
 
                 <li class=" align-self-center">
-                    <a href="" class=" margin-right-left text-secondary h6">{{ auth()->user()->name }}</a>
+                    <a href=" {{ route('displaycart') }}" class=" margin-right-left text-secondary h6">Votre panier</a>
 
                 </li>
 
