@@ -28,8 +28,8 @@
         <ul class="d-flex style-none">
             @auth
 
-                <li class=" align-self-center">
-                    <a href=" {{ route('displaycart') }}" class=" margin-right-left text-secondary h6">Votre panier</a>
+                <li class=" align-self-center d-flex">
+                    <a href=" {{ route('displaycart') }}" class=" margin-right-left text-secondary h6">Votre panier</a><div class="contour-compteur">{{$wordCount}}</div>
 
                 </li>
 
@@ -59,6 +59,17 @@
 </body>
 </html>
 <style>
+    .contour-compteur{
+        background-color:rgb(172, 181, 255);
+        position:relative;
+        top:22px;
+        right:14px;
+        width:20px;
+        height:20px;
+        font-size:80% ;
+        text-align: center;
+        border-radius:15px;
+    }
     .style-none{
         list-style: none;
     }

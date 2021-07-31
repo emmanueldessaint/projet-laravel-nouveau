@@ -1,9 +1,9 @@
 @props(['product' => $product])
 
 <div class="m-4  contour  rounded background-primary">
-    <a href="{{ route('product.show', $product->name) }}" class="">
+    
         {{-- {{ route('product.show', $product->user) }} --}}
-        
+            <span>{{ $product->photo }}</span>
             <p  class="">{{ $product->name }}</p> 
             <p class="">{{ $product->description }}</p>
         
@@ -11,8 +11,8 @@
            
         
         
-    </a>
-    <form action="{{ route('addtocart', $product) }}" method="post" class="mr-1">
+    
+    <form action="{{  route('product.show', $product->id) }}"  class="mr-1">
         @csrf
         <button type="submit" class=""><small>Ajouter au panier</small></button>
     </form>

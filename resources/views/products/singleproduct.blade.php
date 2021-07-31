@@ -2,9 +2,10 @@
 
 @section('content')
     <div class="produit mt-4">
-        <h4>{{ $product->name }}</h4>
-        <span>{{ $product->description }}</span>
-        <span>{{ $product->price }}</span>
+        <h4>{{ $user }}</h4>
+        <h4>{{ $id }}</h4>
+        
+        
     </div>
 @endsection
 

@@ -4,21 +4,38 @@ namespace App\Http\Controllers\Products;
 
 use App\Models\User;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 
 
 class OneProductController extends Controller {
 
     
-    public function index(Product $product)
+    public function index($id)
     {
-        // dd( $product = Product::get());
+       
+        $user = Auth::user()->id;      
+        $exist = DB::table('cart')->where('id_user', '=', $user)
+                                  ->where('id_product', '=', $id)->count();
 
-        // $posts = Post::latest()->with(['user', 'likes'])->paginate(20);
+
+        if($exist === 0) {
+            DB::table('cart')->insert([
+                'quantity' =>  1,
+                'id_product' => $id,
+                'id_user' => $user,
+            ]);
+        }
         
-        return view('Products.singleproduct', [
-            'product' => $product
-        ]);
+        if($exist != 0) {
+            DB::table('cart')
+            ->where('id_user', '=', $user)
+            ->where('id_product', '=', $id)
+            ->increment('quantity',1);                       
+        }
+
+        return back();
     }
 }

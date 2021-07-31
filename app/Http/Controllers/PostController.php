@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -18,7 +20,12 @@ class PostController extends Controller
 
         // return view('posts.index', compact('posts'));
 
+        $user = Auth::user()->id;
+        $wordList = DB::table('cart')->where('id_user', '=', $user)->get();
+        $wordCount= $wordList->count();
+        
         return view('posts.index', [
+            'wordCount' => $wordCount,
             'posts' => $posts
         ]);
     }
@@ -26,6 +33,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return view('posts.show', [
+
             'post' => $post
         ]);
     }
